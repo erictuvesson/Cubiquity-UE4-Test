@@ -1,0 +1,3 @@
+[submodule "Plugins/Cubiquity"]
+	path = Plugins/Cubiquity
+	url = https://github.com/ChillyFlashER/cubiquity-for-unreal-engine.git
