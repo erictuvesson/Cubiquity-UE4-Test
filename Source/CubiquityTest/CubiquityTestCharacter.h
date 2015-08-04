@@ -24,5 +24,14 @@ public:
 	FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const { return TopDownCameraComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+protected:
+    void OnMoveForward(float value);
+    void OnMoveRight(float value);
+
+protected:
+    // APawn interface
+    virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
+    // End of APawn interface
 };
 

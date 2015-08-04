@@ -33,3 +33,43 @@ ACubiquityTestCharacter::ACubiquityTestCharacter()
 	TopDownCameraComponent->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
 }
+
+
+void ACubiquityTestCharacter::SetupPlayerInputComponent(class UInputComponent* InputComponent)
+{
+    // Set up gameplay key bindings
+    check(InputComponent);
+
+    InputComponent->BindAxis("MoveForward", this, &ACubiquityTestCharacter::OnMoveForward);
+    InputComponent->BindAxis("MoveRight", this, &ACubiquityTestCharacter::OnMoveRight);
+}
+
+
+void ACubiquityTestCharacter::OnMoveForward(float value)
+{
+    if ((Controller != NULL) && (value != 0.0f))
+    {
+        // find out which way is forward
+        const FRotator rotation = Controller->GetControlRotation();
+        const FRotator yawRotation(0, rotation.Yaw, 0);
+
+        // get forward vector
+        const FVector direction = FRotationMatrix(yawRotation).GetUnitAxis(EAxis::X);
+        AddMovementInput(direction, value);
+    }
+}
+
+void ACubiquityTestCharacter::OnMoveRight(float value)
+{
+    if ((Controller != NULL) && (value != 0.0f))
+    {
+        // find out which way is right
+        const FRotator rotation = Controller->GetControlRotation();
+        const FRotator yawRotation(0, rotation.Yaw, 0);
+
+        // get right vector 
+        const FVector direction = FRotationMatrix(yawRotation).GetUnitAxis(EAxis::Y);
+        // add movement in that direction
+        AddMovementInput(direction, value);
+    }
+}

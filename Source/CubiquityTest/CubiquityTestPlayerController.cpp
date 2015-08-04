@@ -26,12 +26,12 @@ void ACubiquityTestPlayerController::SetupInputComponent()
 	// set up gameplay key bindings
 	Super::SetupInputComponent();
 
-	InputComponent->BindAction("SetDestination", IE_Pressed, this, &ACubiquityTestPlayerController::OnSetDestinationPressed);
-	InputComponent->BindAction("SetDestination", IE_Released, this, &ACubiquityTestPlayerController::OnSetDestinationReleased);
+	//InputComponent->BindAction("SetDestination", IE_Pressed, this, &ACubiquityTestPlayerController::OnSetDestinationPressed);
+	//InputComponent->BindAction("SetDestination", IE_Released, this, &ACubiquityTestPlayerController::OnSetDestinationReleased);
 
-	// support touch devices 
-	InputComponent->BindTouch(EInputEvent::IE_Pressed, this, &ACubiquityTestPlayerController::MoveToTouchLocation);
-	InputComponent->BindTouch(EInputEvent::IE_Repeat, this, &ACubiquityTestPlayerController::MoveToTouchLocation);
+	//// support touch devices 
+	//InputComponent->BindTouch(EInputEvent::IE_Pressed, this, &ACubiquityTestPlayerController::MoveToTouchLocation);
+	//InputComponent->BindTouch(EInputEvent::IE_Repeat, this, &ACubiquityTestPlayerController::MoveToTouchLocation);
 }
 
 void ACubiquityTestPlayerController::MoveToMouseCursor()
